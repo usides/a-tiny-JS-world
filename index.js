@@ -8,6 +8,55 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
+const dog = {
+  species: 'dog',
+  legs: 4,
+  hands: 0,
+  name: 'Doggy',
+  gender: 'male',
+  saying: 'bark-bark',
+  friends: 'Alice',
+};
+
+const cat = {
+  species: 'cat',
+  legs: 4,
+  hands: 0,
+  name: 'Meowler',
+  gender: 'male',
+  saying: 'meow-meow',
+  friends: 'Dude, Alice, Fur',
+};
+
+const man = {
+  species: 'man',
+  legs: 2,
+  hands: 2,
+  name: 'Dude',
+  gender: 'male',
+  saying: "Hey! What's up?",
+  friends: 'Alice, Meowler',
+};
+
+const woman = {
+  species: 'woman',
+  legs: 2,
+  hands: 2,
+  name: 'Alice',
+  gender: 'female',
+  saying: 'What a nice place!',
+  friends: 'Dude, Meowler, Doggy',
+};
+
+const catWoman = {
+  species: 'cat-woman',
+  legs: 2,
+  hands: 2,
+  name: 'Fur',
+  gender: 'female',
+  saying: cat.saying,
+  friends: 'Meowler',
+};
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -18,14 +67,8 @@
    so code reviewers might focus on a single file that is index.js.
    */
 
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-
-
+for (let item of [dog, cat, man, woman, catWoman]) {
+  print(
+    `species: ${item.species}, legs: ${item.legs}, hands: ${item.hands}, name: ${item.name}, gender: ${item.gender}, saying: ${item.saying}, friends: ${item.friends}`,
+  );
+}
