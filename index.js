@@ -1,84 +1,76 @@
-// Most common initial code example
+/* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
+   Complete the below for code reviewers' convenience:
 
-const INHABITANT = {
-  propertiesList: ['species', 'name', 'gender', 'legs', 'hands', 'say', 'friends'],
-  species : {
-    human: 'human',
-    dog: 'dog',
-    cat: 'cat',
-  },
-};
+   Code repository: _put repo URL here_
+   Web app: _put project's github pages URL here_
+   */
 
-const man = {
-  species: INHABITANT.species.human,
-  name: 'Jack',
-  gender: 'male',
-  legs: 2,
-  hands: 2,
-  say: 'Argh!',
-  friends: [],
-  addFriend,
-  toString,
-};
-
-const woman = {
-  species: INHABITANT.species.human,
-  name: 'Jane',
-  gender: 'female',
-  legs: 2,
-  hands: 2,
-  say: 'What a beautiful day!',
-  friends: [],
-  addFriend,
-  toString,
-};
+// ======== OBJECTS DEFINITIONS ========
+// Define your objects here
 
 const dog = {
-  species: INHABITANT.species.dog,
-  name: 'Toby',
-  gender: 'mail',
+  species: 'dog',
   legs: 4,
   hands: 0,
-  say: 'woof!',
-  friends: [],
-  addFriend,
-  toString,
+  name: 'Doggy',
+  gender: 'male',
+  saying: 'bark-bark',
+  friends: 'Alice',
 };
 
 const cat = {
-  species: INHABITANT.species.cat,
-  name: 'Kitty',
-  gender: 'female',
+  species: 'cat',
   legs: 4,
   hands: 0,
-  say: 'meow!',
-  friends: [],
-  addFriend,
-  toString,
+  name: 'Meowler',
+  gender: 'male',
+  saying: 'meow-meow',
+  friends: 'Dude, Alice, Fur',
 };
 
-function addFriend(friend) {
-  this.friends.push(friend);
-  friend.friends.push(this);
+const man = {
+  species: 'man',
+  legs: 2,
+  hands: 2,
+  name: 'Dude',
+  gender: 'male',
+  saying: "Hey! What's up?",
+  friends: 'Alice, Meowler',
+};
+
+const woman = {
+  species: 'woman',
+  legs: 2,
+  hands: 2,
+  name: 'Alice',
+  gender: 'female',
+  saying: 'What a nice place!',
+  friends: 'Dude, Meowler, Doggy',
+};
+
+const catWoman = {
+  species: 'cat-woman',
+  legs: 2,
+  hands: 2,
+  name: 'Fur',
+  gender: 'female',
+  saying: cat.saying,
+  friends: 'Meowler',
+};
+
+// ======== OUTPUT ========
+/* Use print(message) for output.
+   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+
+   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
+   However, please, REFRAIN from improving visuals at least until your code is reviewed
+   so code reviewers might focus on a single file that is index.js.
+   */
+
+const inhabitants = [dog, cat, man, woman, catWoman];
+
+function makeString({ species, legs, hands, name, gender, saying, friends }) {
+  return `species: ${species}, legs: ${legs}, hands: ${hands}, name: ${name}, gender: ${gender}, saying: ${saying}, friends: ${friends}`;
 }
 
-function toString() {
-  return INHABITANT.propertiesList.map(prop => `${prop}: ${this[prop]}`).join('; ');
-}
-
-cat.addFriend(dog);
-man.addFriend(dog);
-man.addFriend(woman);
-woman.addFriend(cat);
-
-[man, woman, dog, cat]
-  .forEach(inhabitant => printElement(inhabitant));
-
-
-/*
-print(man.species + '; ' + man.name + '; ' + man.gender + '; ' + man.legs + '; ' + man.hands + '; ' + man.say);
-print(`species: ${woman.species}; name: ${woman.name}; gender: ${woman.gender}; legs: ${woman.legs}; hands: ${woman.hands}; say: ${woman.say};`
-  + woman.fiends);
-print(dog.species + '; ' + dog.name + '; ' + dog.gender + '; ' + dog.legs + '; ' + dog.hands + '; ' + dog.say);
-print(cat.species + '; ' + cat.name + '; ' + cat.gender + '; ' + cat.legs + '; ' + cat.hands + '; ' + cat.say);
-*/
+inhabitants.forEach((elem) => print(makeString(elem)));
